@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Student Resource Hub</title>
+
+<style>
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  body {
+    font-family: "Segoe UI", sans-serif;
+    background: #f5f5f5;
+    padding: 30px;
+  }
+
+  /* Top Navigation */
+  .top-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+  }
+
+  .top-nav h1 {
+    font-size: 28px;
+  }
+
+  .top-nav button {
+    padding: 8px 16px;
+    margin-left: 10px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    background: #222;
+    color: #fff;
+    font-size: 14px;
+  }
+
+  .container {
+    max-width: 900px;
+    margin: auto;
+  }
+
+  .card {
+    background: #fff;
+    border-radius: 10px;
+    padding: 25px;
+    margin-bottom: 25px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  }
+
+  .card-header {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 15px;
+  }
+
+  .icon {
+    background: #222;
+    color: white;
+    font-size: 20px;
+    padding: 10px;
+    border-radius: 6px;
+  }
+
+  h2 {
+    font-size: 22px;
+  }
+
+  ul {
+    list-style: none;
+    margin-top: 10px;
+  }
+
+  ul li {
+    padding: 8px 0;
+  }
+
+  ul li a {
+    color: #333;
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+  ul li a:hover {
+    text-decoration: underline;
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+
+  td {
+    padding: 8px;
+    border-bottom: 1px solid #eee;
+  }
+
+  td strong {
+    width: 180px;
+    display: inline-block;
+  }
+
+  /* Hide profile section initially */
+  #profile-section {
+    display: none;
+  }
+</style>
+
+<script>
+  function openProfile(studentId) {
+    document.getElementById("home-section").style.display = "none";
+    document.getElementById("profile-section").style.display = "block";
+
+    document.querySelectorAll(".student-profile").forEach(p => p.style.display = "none");
+    document.getElementById(studentId).style.display = "block";
+  }
+
+  function goHome() {
+    document.getElementById("profile-section").style.display = "none";
+    document.getElementById("home-section").style.display = "block";
+  }
+</script>
+</head>
+
+<body>
+
+<!-- TOP NAV -->
+<div class="top-nav">
+  <h1>🎓 Student Resource Hub</h1>
+  <div>
+    <button onclick="goHome()">Home</button>
+  </div>
+</div>
+
+<div class="container">
+
+  <!-- HOME PAGE -->
+  <section id="home-section" class="card">
+    <div class="card-header">
+      <div class="icon">🏠</div>
+      <h2>Homepage</h2>
+    </div>
+
+    <p><strong>Purpose:</strong> Select a student to view profile</p>
+
+    <ul>
+      <li><a onclick="openProfile('student1')">▸ Yug Tomar</a></li>
+      <li><a onclick="openProfile('student2')">▸ Vinay Chauhan</a></li>
+    </ul>
+  </section>
+
+  <!-- PROFILE PAGE -->
+  <section id="profile-section" class="card">
+    <div class="card-header">
+      <div class="icon">👤</div>
+      <h2>Student Profile</h2>
+    </div>
+
+    <!-- STUDENT 1 -->
+    <div id="student1" class="student-profile">
+      <table>
+        <tr><td><strong>Name:</strong></td><td>Yug Tomar</td></tr>
+        <tr><td><strong>Roll No:</strong></td><td>231811009763</td></tr>
+        <tr><td><strong>Course:</strong></td><td>Diploma In Computer Science</td></tr>
+        <tr><td><strong>Branch:</strong></td><td>Computer Science</td></tr>
+        <tr><td><strong>Email:</strong></td><td></td></tr>
+      </table>
+    </div>
+
+    <!-- STUDENT 2 -->
+    <div id="student2" class="student-profile">
+      <table>
+        <tr><td><strong>Name:</strong></td><td>Vinay Chauhan</td></tr>
+        <tr><td><strong>Roll No:</strong></td><td>231811009760</td></tr>
+        <tr><td><strong>Course:</strong></td><td>Diploma In Computer Science</td></tr>
+        <tr><td><strong>Branch:</strong></td><td>Computer Science</td></tr>
+        <tr><td><strong>Email:</strong></td><td>ankit@gmail.com</td></tr>
+      </table>
+    </div>
+
+  </section>
+
+</div>
+
+</body>
+</html>
